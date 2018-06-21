@@ -33,23 +33,26 @@ void sort() {
 
 long findFreeSpace(long fileSize) {
   sort();
-  // If there is not a block allocated yet
+  // Check if there is not a block allocated yet
   if(noOfFiles == 0){
     return 0;
   }
-  // If there is space between 0 and the first address
+  
+  // Check if there is space between 0 and the first address
   else if(addr[0] >= fileSize){
     return 0;
   }
-      //check if there is space between 2 used addresses
+  
+  //check if there is space between 2 used addresses
   for (int i = 0; i < noOfFiles - 1; i++) {
     if(addr[i + 1] - (addr[i] + size[i]) >= fileSize){
       return addr[i] + size[i];
     }
   }
-  //if there is space left after the last address used
+  
+  // Check if there is space left after the last address used
   if (getMem() - (addr[noOfFiles - 1] +  size[noOfFiles - 1]) >= fileSize) return addr[noOfFiles - 1] + size[noOfFiles - 1];
-  return -1;
+	return -1;
 }
 
 int findFile(string fileName) {
@@ -68,7 +71,7 @@ void store(long fileSize, string fileName, char *data) {
     cout << "File already exists." << endl;
   }
   else {
-    //store file at address F
+    // Store file at address (F)
     name[noOfFiles] = fileName;
     addr[noOfFiles] = f;
     size[noOfFiles] = fileSize;
@@ -156,7 +159,7 @@ long freeSpace() {
 
 void pack() {
   sort();
-  //If first address is not null
+  //Check if first address is not null
   if(addr[0] != 0){
     addr[0] = 0;
   }
@@ -181,6 +184,7 @@ int main() {
       cin.read(data, fileSize);
       store(fileSize, fileName, data);
       free(data);
+	  cout << "All done!" << endl;
     }
     if (command == "RETRIEVE") {
 	  cout << "Please enter file name" << endl;
