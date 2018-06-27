@@ -30,3 +30,4 @@ for (( a = 100 ; a >= 98 ; a--  ));
 				echo "there'd be $a bottles of beer on the wall One bottle Of beer on the wall, I bottle Of beer. If that bottle would happen to fall, there'd be no bottles of beer on the wall.";
 	fi
 done
+read
