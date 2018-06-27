@@ -17,17 +17,13 @@ else
 fi
 
 
-for (( a = 100 ; a >= 98 ; a--  ));
+for (( a = 100 ; a >= 1 ; a--  ));
     do
-		if [[ $a == 100 ]];
-			then 
-				echo -n "$a bottles of beer on the wall, $a bottles of beer. If one of those bottles would happen to fall, ";
-		elif [[ $a == 99 ]];
-			then 
-				echo -n "there'd be $a bottles of beer on the wall $a bottles Of beer on the wall, $a bottles Of beer. If one Of those bottles would happen to fall, ";
-		elif [[ $a == 98 ]];
-			then 
-				echo "there'd be $a bottles of beer on the wall One bottle Of beer on the wall, I bottle Of beer. If that bottle would happen to fall, there'd be no bottles of beer on the wall.";
+		if [[ $a > 1 ]];
+			then
+				echo "$a bottles of beer on the wall, $a bottles of beer. If one of those bottles would happen to fall, there'd be $(( $a-1 )) bottles of beer on the wall."
+		else
+			echo "One bottle Of beer on the wall, 1 bottle Of beer. If that bottle would happen to fall, there'd be no bottles of beer on the wall.";
 	fi
 done
 read
