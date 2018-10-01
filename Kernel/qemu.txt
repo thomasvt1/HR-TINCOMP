@@ -1,0 +1,4 @@
+qemu-system-arm -nographic -monitor none -serial stdio -cpu arm1176 -m 256 -M versatilepb - kernel 
+
+
+C:\Program Files\qemu
